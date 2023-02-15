@@ -12,4 +12,6 @@
 \n\nI am so grateful to have discovered my love for programming
 \n\nI\'m happy that I have landed a software engineering role to further expand my skills
 \nI hope that in my role as a software engineer I can create something meaningful\n\n</string>
+    <string name="what_is_your_nickname">What is your Nickname?</string>
+    <string name="done">Done</string>
 </resources>
