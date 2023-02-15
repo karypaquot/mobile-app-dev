@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">AboutMe</string>
     <string name="name">Karina Hernandez</string>
+    <string name="yellow_star">Yellow star</string>
+    <string name="bio">Hi, my name is Karina.
+\n\nI love coding.
+\n\nCoding is a form of art because one can create whatever they can imagine through programming
+\nFun fact is that my first programming language was Java.
+\n\n I love the problem solving through trial and error that comes with coding.
+\nSometimes I spend hours coding
+\nDuring those hours I can get a lot done or I can be stuck trying to solve one bug
+\n\nI am so grateful to have discovered my love for programming
+\n\nI\'m happy that I have landed a software engineering role to further expand my skills
+\nI hope that in my role as a software engineer I can create something meaningful\n\n</string>
 </resources>
