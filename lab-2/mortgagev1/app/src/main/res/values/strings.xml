@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">mortgagev1</string>
+    <string name="label_amount">Amount</string>
+    <string name="amount">$100000.00</string>
 </resources>
