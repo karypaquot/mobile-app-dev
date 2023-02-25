@@ -16,5 +16,10 @@ xmlns:android="http://schemas.android.com/apk/res/android">
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DataActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 </manifest>

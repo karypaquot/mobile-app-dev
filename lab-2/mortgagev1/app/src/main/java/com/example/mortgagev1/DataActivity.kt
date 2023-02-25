@@ -1,4 +1,15 @@
 package com.example.mortgagev1
 
-class DataActivity {
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+
+class DataActivity: AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_data)
+    }
+    fun goBack(v: View?){
+        finish()
+    }
 }
