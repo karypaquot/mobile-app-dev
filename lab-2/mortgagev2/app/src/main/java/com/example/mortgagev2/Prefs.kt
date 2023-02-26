@@ -20,18 +20,18 @@ class Prefs (context1: Context) {
         if (editor != null) {
             editor.putInt(Mortgage.PREFERENCE_YEARS, mort.getYears())
         }
-        ___________________________________
-        ()
+        if(editor!= null){
+            editor.putFloat(Mortgage.PREFERENCE_RATE, mort.getRate())
+        }
     }
 
     fun getPrefernces(mort: Mortgage)
     {
-
-        var s: SharedPreferences? = _____________________________________
+        var s: SharedPreferences? = context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
         if (s != null) {
             mort.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, 30))
-            ______________________________________________________
-            ______________________________________________________
+            mort.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT,100000.0f ))
+            mort.setRate(s.getFloat(Mortgage.PREFERENCE_RATE, 0.035f))
         }
 
     }

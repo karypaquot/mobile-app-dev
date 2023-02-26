@@ -13,7 +13,6 @@ class Mortgage(){
         const val PREFERENCE_RATE = "rate"
         const val TAG = "MyActivity"
 
-
     }
 
     private var amount:Float=200000.0f
@@ -71,9 +70,9 @@ class Mortgage(){
 
     fun formattedTotalPayment(): String? {
         if(amount ==0.0f)
-        return "$0.0"
+            return "$0.0"
         else
-        return MONEY.format(totalPayment())
+            return MONEY.format(totalPayment())
     }
 
 }
