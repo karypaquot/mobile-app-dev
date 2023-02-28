@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     val pf: Prefs = Prefs(this)
     //val mortgage = Mortgage ()
-    val mortgage = Mortgage
+    val mortgage = Mortgage()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pf.setPreferences(mortgage)
@@ -20,12 +20,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         //setText(mortgage)
     }
-
     override fun onStart() {
         super.onStart()
+        pf.getPreferences(mortgage)
         setText(mortgage)
     }
-    fun setText(mortgage: Mortgage.Companion)   {
+    fun setText(mortgage: Mortgage)   {
         val amountString = mortgage.getFormattedAmount().toString()
         val yearsString = mortgage.getYears().toString()
         val rateString = String.format("%.1f",(mortgage.getRate() * 100)) + "%"

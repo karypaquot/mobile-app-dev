@@ -9,7 +9,7 @@ import com.example.mortgagev2.databinding.ActivityDataBinding
 class DataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDataBinding
     private val p: Prefs = Prefs(this)
-    var mortgage = Mortgage
+    var mortgage = Mortgage()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //  setContentView(R.layout.activity_data);
@@ -21,7 +21,12 @@ class DataActivity : AppCompatActivity() {
         }
         updateView()
     }
-    fun setText(mortgage: Mortgage.Companion){
+    override fun onStart() {
+        super.onStart()
+        p.getPreferences(mortgage)
+        setText(mortgage)
+    }
+    fun setText(mortgage: Mortgage){
         val amountString = mortgage.getAmount().toString()
         val rateString = mortgage.getRate().toString()
 
@@ -53,6 +58,7 @@ class DataActivity : AppCompatActivity() {
         rateET.setText(mortgage.getRate().toString())
 
         val amountET = binding.dataAmount
+        amountET.setText(mortgage.getAmount().toString())
 
     }
     private fun updateMortgageObject()

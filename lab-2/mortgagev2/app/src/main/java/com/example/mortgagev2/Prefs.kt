@@ -8,7 +8,7 @@ class Prefs (context1: Context) {
     private var years: Int =15
     private var rate: Float =0.035f
 
-    fun setPreferences(mort: Mortgage.Companion) {
+    fun setPreferences(mort: Mortgage) {
         val s: SharedPreferences? =
             context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
         val editor = s?.edit()
