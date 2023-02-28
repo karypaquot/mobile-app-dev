@@ -23,6 +23,13 @@
             android:name=".DataActivity"
             android:exported="true">
         </activity>
-
+        <activity
+            android:name=".Mortgage"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".Prefs"
+            android:exported="true">
+        </activity>
     </application>
 </manifest>

@@ -1,7 +1,6 @@
 package com.example.mortgagev2
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log
 
 class Prefs (context1: Context) {
     private var context: Context? = context1
@@ -9,11 +8,10 @@ class Prefs (context1: Context) {
     private var years: Int =15
     private var rate: Float =0.035f
 
-
-    fun setPreferences(mort: Mortgage) {
-        var s: SharedPreferences? =
+    fun setPreferences(mort: Mortgage.Companion) {
+        val s: SharedPreferences? =
             context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
-        var editor = s?.edit()
+        val editor = s?.edit()
         if (editor != null) {
             editor.putFloat(Mortgage.PREFERENCE_AMOUNT, mort.getAmount())
         }
@@ -23,17 +21,16 @@ class Prefs (context1: Context) {
         if(editor!= null){
             editor.putFloat(Mortgage.PREFERENCE_RATE, mort.getRate())
         }
+        editor?.apply()
     }
 
-    fun getPrefernces(mort: Mortgage)
+    fun getPreferences(mort: Mortgage)
     {
-        var s: SharedPreferences? = context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
+        val s: SharedPreferences? = context!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
         if (s != null) {
             mort.setYears(s.getInt(Mortgage.PREFERENCE_YEARS, 30))
             mort.setAmount(s.getFloat(Mortgage.PREFERENCE_AMOUNT,100000.0f ))
             mort.setRate(s.getFloat(Mortgage.PREFERENCE_RATE, 0.035f))
         }
-
     }
-
 }

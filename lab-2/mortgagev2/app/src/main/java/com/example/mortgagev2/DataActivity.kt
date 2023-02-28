@@ -8,8 +8,8 @@ import com.example.mortgagev2.databinding.ActivityDataBinding
 
 class DataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDataBinding
-    //val pf: Prefs = Prefs(this)
-    val mortgage: Mortgage = Mortgage()
+    private val p: Prefs = Prefs(this)
+    var mortgage = Mortgage
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //  setContentView(R.layout.activity_data);
@@ -19,6 +19,25 @@ class DataActivity : AppCompatActivity() {
             goBack(view)
         }
         updateView()
+    }
+    fun setText(mortgage: Mortgage){
+        val amountString = mortgage.getAmount().toString()
+        val rateString = mortgage.getRate().toString()
+
+        binding.dataAmount.setText(amountString)
+        binding.dataRate.setText(rateString)
+
+        if(mortgage.getYears() == 10)    {
+            binding.ten.isChecked = true
+        }
+
+        else if(mortgage.getYears() == 15)   {
+            binding.fifteen.isChecked = true
+        }
+
+        else if(mortgage.getYears() == 30)   {
+            binding.thirty.isChecked = true
+        }
     }
     fun updateView()
     {   val rb10 = binding.ten
@@ -36,7 +55,7 @@ class DataActivity : AppCompatActivity() {
 
     }
     fun updateMortgageObject()
-    {   val p = Prefs(this)
+    {   //val p = Prefs(this)
 
         val amountET = binding.dataAmount
         val rb10 = binding.ten
@@ -55,7 +74,7 @@ class DataActivity : AppCompatActivity() {
             val amount = amountString.toFloat()
             mortgage.setAmount(amount)
             val rate: Float = rateString.toFloat()
-            mortgage.setAmount(rate)
+            mortgage.setRate(rate)
             p.setPreferences(mortgage)
 
         } catch (nfe: NumberFormatException) {
@@ -66,7 +85,6 @@ class DataActivity : AppCompatActivity() {
     fun goBack(v: View?) {
         updateMortgageObject()
         finish()
-        overridePendingTransition(R.anim.fade_in_and_scale, R.anim.slide_from_left)
+        overridePendingTransition(R.anim.fade_in_and_scale, 0)
     }
-
 }
