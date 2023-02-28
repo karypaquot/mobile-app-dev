@@ -15,12 +15,13 @@ class DataActivity : AppCompatActivity() {
         //  setContentView(R.layout.activity_data);
         binding = ActivityDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //updateView()
         binding.buttonDone.setOnClickListener { view: View ->
             goBack(view)
         }
         updateView()
     }
-    fun setText(mortgage: Mortgage){
+    fun setText(mortgage: Mortgage.Companion){
         val amountString = mortgage.getAmount().toString()
         val rateString = mortgage.getRate().toString()
 
@@ -54,8 +55,8 @@ class DataActivity : AppCompatActivity() {
         val amountET = binding.dataAmount
 
     }
-    fun updateMortgageObject()
-    {   //val p = Prefs(this)
+    private fun updateMortgageObject()
+    {   val p = Prefs(this)
 
         val amountET = binding.dataAmount
         val rb10 = binding.ten

@@ -18,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         pf.setPreferences(mortgage)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //setText(mortgage)
+    }
+
+    override fun onStart() {
+        super.onStart()
         setText(mortgage)
     }
     fun setText(mortgage: Mortgage.Companion)   {
@@ -38,6 +43,6 @@ class MainActivity : AppCompatActivity() {
         this.startActivity(intent)
         val s: SharedPreferences? =
             this!!.getSharedPreferences("Mortgage", Context.MODE_PRIVATE)
-        overridePendingTransition(R.anim.slide_from_left, R.anim.fade_in_and_scale)
+        overridePendingTransition(R.anim.slide_from_left, 0)
     }
 }
