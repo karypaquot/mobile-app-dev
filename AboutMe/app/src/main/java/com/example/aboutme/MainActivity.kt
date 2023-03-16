@@ -14,10 +14,12 @@ import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("Karina Hernandez")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.myName = myName
         //get reference to the done button view
         /*
         findViewById<Button>(R.id.done_button).setOnClickListener{
@@ -47,7 +49,10 @@ class MainActivity : AppCompatActivity() {
         nicknameTextView.visibility = View.VISIBLE
         */
         binding.apply {
-            nicknameText.text = nicknameEdit.text.toString() // set textview the the text that the user enters
+            //nicknameText.text = nicknameEdit.text.toString() // set textview the the text that the user enters
+            // Use data class for nickname
+            myName?.nickname = nicknameEdit.text.toString()
+            invalidateAll()
             nicknameEdit.visibility = View.GONE // change visitbility property
             doneButton.visibility = View.GONE // hide the done button by setting the visibility of the view to GONE
             nicknameText.visibility = View.VISIBLE // make nickname text visible
