@@ -1,0 +1,4 @@
+#Mon Apr 17 23:46:25 PDT 2023
+base.0=/Users/karypaquot/Documents/GitHub/mobile-app-dev/DessertClicker-Starter/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
